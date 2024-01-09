@@ -12,16 +12,12 @@ function Cabecalho() {
 
             <nav>
                 
-                <CabecalhoLink
-                    url="./"
-                    children="Home" />
-                {/* Home
-                </CabecalhoLink> */}
-                <CabecalhoLink
-                    url="./Favoritos"
-                    children="Favoritos" />
-                {/* Favoritos
-                </CabecalhoLink> */}
+                <CabecalhoLink url="./">
+                Home
+                </CabecalhoLink>
+                <CabecalhoLink url="./favoritos">
+                Favoritos
+                </CabecalhoLink>
             </nav>
 
         </header>
