@@ -9,11 +9,13 @@ import { useEffect, useState } from "react";
 function Inicio() {
     const [videos, setVideos] = useState([]);
 
+
     useEffect(() => {
         fetch('https://my-json-server.typicode.com/gildoamaral/cinetag-api/videos')
             .then(resposta => resposta.json())
             .then(dados => setVideos(dados))
     }, [])
+
 
     return (
         <>

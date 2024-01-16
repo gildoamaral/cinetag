@@ -2,6 +2,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.1em 20em;
+    padding: 0em 10em;
     background-color: var(--preto);
+}
+
+.logo {
+    height: 2.3em;
 }
