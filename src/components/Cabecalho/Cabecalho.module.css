@@ -1,11 +1,14 @@
 .cabecalho {
+    position:fixed;
+    top: 0;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    padding: 0em 10em;
     background-color: var(--preto);
 }
 
 .logo {
     height: 2.3em;
+    padding-right: 25em;
 }
