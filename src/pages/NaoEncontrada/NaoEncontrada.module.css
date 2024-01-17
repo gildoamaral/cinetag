@@ -1,3 +1,4 @@
 .confuse {
-    width: 100%;
+    width: 25vw;
+    min-width: 15em;
 }
