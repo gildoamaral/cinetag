@@ -16,6 +16,7 @@
 @media only screen and (max-width: 400px) {
     .container section {
         margin: auto;
+        padding-bottom: 4em;
     }
   }
   
