@@ -1,14 +1,16 @@
 .cabecalho {
+    box-sizing: border-box;
     position:fixed;
     top: 0;
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     background-color: var(--preto);
+    padding: 0 5em;
 }
 
 .logo {
     height: 2.3em;
-    padding-right: 25em;
+    /* padding-right: 25em; */
 }

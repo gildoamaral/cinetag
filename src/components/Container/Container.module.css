@@ -1,8 +1,15 @@
 .container section {
-    margin: 2em 15em;
+    margin: 2em 10em;
     text-align: center;
 }
 
 .container {
     margin-top: 40px;
 }
+
+@media only screen and (max-width: 1300px) {
+    .container section {
+        margin: 5em;
+    }
+  }
+  
