@@ -7,7 +7,11 @@ import { Link } from "react-router-dom";
 function Card({ id, titulo, capa }) {
     const { favorito, adicionarFavorito } = useFavoritoContext();
     const ehFavorito = favorito.some((fav) => fav.id === id);
-    const icone = ehFavorito ? iconeDesfavoritar : iconeFavoritar;
+    let icone = ehFavorito ? iconeDesfavoritar : iconeFavoritar;
+  
+
+    
+
     return (
         <div className={styles.container}>
             <Link className={styles.link} to={`/videos/${id}`}>
@@ -18,6 +22,7 @@ function Card({ id, titulo, capa }) {
                 <img src={icone}
                     alt="Favoritar filme"
                     className={styles.favoritar}
+                    // onMouseEnter={}
                     onClick={() => {
                         adicionarFavorito({ id, titulo, capa })
                     }}

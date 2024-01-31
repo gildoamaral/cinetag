@@ -9,11 +9,6 @@
     flex-direction: column;
     justify-content: space-between;
     margin: 0.5em 0.5em;
-    transition: 0.5s ease;
-}
-
-.container:hover {
-    background-color: grey;
 }
 
 .container h2 {
