@@ -1,4 +1,4 @@
-import { useFavoritoContext } from 'contextos/Favoritos'
+import { useFavoritoContext } from '@/context/Favoritos'
 import styles from './Card.module.css'
 import iconeFavoritar from './favoritar.png'
 import iconeDesfavoritar from './desfavoritar.png'
