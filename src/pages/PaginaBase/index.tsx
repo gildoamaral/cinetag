@@ -1,20 +1,17 @@
 import Cabecalho from 'components/Cabecalho'
 import Container from 'components/Container'
 import Rodape from 'components/Rodape'
-import FavoritosProvider from '@/context/Favoritos'
 import { Outlet } from 'react-router-dom'
 
 function PaginaBase() {
   return (
-    <main>
+    <div className="min-h-screen flex flex-col bg-linear-to-br from-dark via-dark-lighter to-dark">
       <Cabecalho />
-      <FavoritosProvider>
-        <Container>
-          <Outlet />
-        </Container>
-      </FavoritosProvider>
+      <Container>
+        <Outlet />
+      </Container>
       <Rodape />
-    </main>
+    </div>
   )
 }
 
