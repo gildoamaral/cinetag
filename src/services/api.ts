@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { Video } from '@/types'
 
 const API_KEY = import.meta.env.VITE_API_KEY;
