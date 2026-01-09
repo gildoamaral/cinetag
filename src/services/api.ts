@@ -11,7 +11,10 @@ const mapToVideo = (movie: any): Video => ({
   capa: `${IMG_BASE}${movie.poster_path}`,
   link: movie.videos?.results.find((v: any) => v.type === 'Trailer') 
         ? `https://www.youtube.com/embed/${movie.videos.results.find((v: any) => v.type === 'Trailer').key}`
-        : `https://www.youtube.com/embed/dQw4w9WgXcQ` 
+        : `https://www.youtube.com/embed/dQw4w9WgXcQ`,
+  release_date: movie.release_date,
+  vote_average: movie.vote_average,
+  overview: movie.overview
 });
 
 export async function fetchVideos(): Promise<Video[]> {

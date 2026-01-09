@@ -92,7 +92,7 @@ function Player() {
             </svg>
             Voltar
           </Link>
-          <h1 className="text-2xl md:text-3xl font-bold text-white">{video.titulo}</h1>
+          <h2 className="text-2xl md:text-3xl font-bold text-white">{video.titulo}</h2>
         </div>
 
         <button
@@ -118,45 +118,96 @@ function Player() {
         </button>
       </div>
 
-      {/* Video Player */}
-      <div className="relative aspect-video rounded-2xl overflow-hidden bg-dark-lighter shadow-2xl animate-pulse-glow">
-        <iframe
-          className="absolute inset-0 w-full h-full"
-          src={video.link}
-          title={video.titulo}
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen
-        />
-      </div>
-      {/* Área da IA */}
-      <div ref={aiSectionRef} className="mt-8 p-6 bg-gray-900/80 rounded-2xl border border-purple-500/30 ">
-        <div className="flex items-center gap-3 mb-4">
-          <span className="text-2xl">🤖</span>
-          <h3 className="text-xl font-bold text-white">Crítica da IA</h3>
+      <div>
+        {/* Video Player */}
+        <div className="relative aspect-video rounded-2xl overflow-hidden bg-dark-lighter shadow-2xl animate-pulse-glow">
+          <iframe
+            className="absolute inset-0 w-full h-full"
+            src={video.link}
+            title={video.titulo}
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          />
+        </div>
+        {/* Video Description */}
+        <div className="mt-6 p-6 bg-dark-lighter/50 rounded-2xl border border-white/5">
+          <h2 className="text-lg font-semibold text-white mb-4">Detalhes do Filme</h2>
+
+          <div className="space-y-3">
+            {/* Nota e Data de Lançamento */}
+            <div className="flex flex-wrap gap-4">
+              {video.vote_average !== undefined && (
+                <div className="flex items-center gap-2">
+                  <span className="text-gray-400">Avaliação:</span>
+                  <div className={`flex items-center gap-1 px-3 py-1.5 rounded-lg border font-bold ${video.vote_average < 5
+                    ? 'text-red-500 bg-red-500/20 border-red-500/50'
+                    : video.vote_average < 7
+                      ? 'text-yellow-400 bg-yellow-400/20 border-yellow-400/50'
+                      : video.vote_average < 9
+                        ? 'text-green-400 bg-green-400/20 border-green-400/50'
+                        : 'text-blue-400 bg-blue-400/20 border-blue-400/50'
+                    }`}>
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                    {video.vote_average.toFixed(1)}
+                  </div>
+                </div>
+              )}
+
+              {video.release_date && (
+                <div className="flex items-center gap-2">
+                  <span className="text-gray-400">Lançamento:</span>
+                  <span className="text-white font-medium">
+                    {new Date(video.release_date).toLocaleDateString('pt-BR', {
+                      day: '2-digit',
+                      month: 'long',
+                      year: 'numeric'
+                    })}
+                  </span>
+                </div>
+              )}
+            </div>
+
+            {/* Sinopse */}
+            {video.overview && (
+              <div>
+                <h3 className="text-white font-medium mb-2">Sinopse</h3>
+                <p className="text-gray-400 leading-relaxed">
+                  {video.overview}
+                </p>
+              </div>
+            )}
+
+            {/* Área da IA */}
+            <div ref={aiSectionRef} className="mt-8 p-6 bg-gray-900/80 rounded-2xl border border-purple-500/30 ">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="text-2xl">🤖</span>
+                <h3 className="text-xl font-bold text-white">Crítica do Gemini Sincero</h3>
+              </div>
+
+              {loadingAI ? (
+                <div className="flex items-center gap-2 text-purple-300 animate-pulse">
+                  <div className="w-2 h-2 bg-purple-400 rounded-full animate-bounce" />
+                  <div className="w-2 h-2 bg-purple-400 rounded-full animate-bounce delay-75" />
+                  <div className="w-2 h-2 bg-purple-400 rounded-full animate-bounce delay-150" />
+                  <span>Gerando opinião polêmica...</span>
+                </div>
+              ) : comentarioExibido ? (
+                <p className="text-gray-300 text-lg leading-relaxed italic border-l-4 border-purple-600 pl-4">
+                  "{comentarioExibido}"
+                </p>
+              ) : null}
+            </div>
+          </div>
         </div>
 
-        {loadingAI ? (
-          <div className="flex items-center gap-2 text-purple-300 animate-pulse">
-            <div className="w-2 h-2 bg-purple-400 rounded-full animate-bounce" />
-            <div className="w-2 h-2 bg-purple-400 rounded-full animate-bounce delay-75" />
-            <div className="w-2 h-2 bg-purple-400 rounded-full animate-bounce delay-150" />
-            <span>Gerando opinião polêmica...</span>
-          </div>
-        ) : comentarioExibido ? (
-          <p className="text-gray-300 text-lg leading-relaxed italic border-l-4 border-purple-600 pl-4">
-            "{comentarioExibido}"
-          </p>
-        ) : null}
+
       </div>
 
-      {/* Video Description */}
-      <div className="mt-6 p-6 bg-dark-lighter/50 rounded-2xl border border-white/5">
-        <h2 className="text-lg font-semibold text-white mb-2">Sobre este vídeo</h2>
-        <p className="text-gray-400">
-          Assista ao trailer de {video.titulo} e adicione aos seus favoritos para acessar mais tarde!
-        </p>
-      </div>
+
+
     </div>
   )
 }

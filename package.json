@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-"dev": "concurrently \"vite\" \"node server.js\"",
+"dev": "concurrently \"vite --host\" \"node server.js\"",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"

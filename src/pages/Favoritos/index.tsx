@@ -1,5 +1,4 @@
 import Banner from 'components/Banner'
-import Titulo from 'components/Titulo'
 import Card from 'components/Card'
 import { useFavoritosStore } from '@/stores/favoritosStore'
 import { Link } from 'react-router-dom'
@@ -8,11 +7,13 @@ function Favoritos() {
   const { favoritos } = useFavoritosStore()
 
   return (
-    <div className="animate-fade-in">
-      <Banner imagem="favoritos" />
-      <Titulo>
-        <h1>Seus filmes favoritos!</h1>
-      </Titulo>
+    <div className="animate-fade-in sm:min-w-5xl">
+      <Banner imagem="favoritos">
+        <div className="inline-block">
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-2">Seus filmes favoritos!</h1>
+          <div className="h-1 w-24 mx-auto bg-linear-to-r from-primary to-secondary rounded-full" />
+        </div>
+      </Banner>
       
       {favoritos.length === 0 ? (
         <div className="flex flex-col items-center justify-center py-16 animate-fade-in">

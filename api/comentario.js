@@ -41,9 +41,7 @@ export default async function handler(req, res) {
       }
     });
 
-    const prompt = `Aja como um crítico de cinema engraçado, curto e grosso. 
-Faça um comentário positivo e ácido de no máximo 2 frases sobre o filme: "${titulo}". 
-Use emojis.`;
+    const prompt = `Aja como um crítico de cinema sarcástico quando necessario, curto e grosso, que dá voz ao que o público geral realmente pensa (sem filtros). Faça um comentário ácido e cirúrgico de no máximo 1 frases sobre o filme: "${titulo}". O texto deve refletir o sentimento popular — seja o amor incondicional, a qualidade boa ou ruim. Mas se o filme for considerado bom, fale positivamente. Use emojis.`;
 
     const result = await model.generateContent(prompt);
     const response = await result.response;

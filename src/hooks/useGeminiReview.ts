@@ -38,7 +38,7 @@ export const useGeminiReview = (titulo: string | undefined) => {
     try {
       // Detecta automaticamente a URL correta
       const apiUrl = import.meta.env.DEV 
-        ? 'http://localhost:3001/api/comentario'  // Desenvolvimento local
+        ? 'http://192.168.1.3:3001/api/comentario'  // Desenvolvimento local
         : '/api/comentario';  // Produção (Vercel)
 
       const response = await fetch(apiUrl, {

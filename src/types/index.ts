@@ -3,6 +3,9 @@ export interface Video {
   titulo: string
   capa: string
   link?: string
+  release_date?: string
+  vote_average?: number
+  overview?: string
 }
 
 export interface FavoritoContextType {

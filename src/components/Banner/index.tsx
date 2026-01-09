@@ -1,8 +1,11 @@
+import type { ReactNode } from 'react'
+
 interface BannerProps {
   imagem: string
+  children?: ReactNode
 }
 
-function Banner({ imagem }: BannerProps) {
+function Banner({ imagem, children }: BannerProps) {
   return (
     <div className="relative w-full h-64 md:h-80 lg:h-96 overflow-hidden rounded-2xl mb-8">
       <div
@@ -11,6 +14,14 @@ function Banner({ imagem }: BannerProps) {
       />
       <div className="absolute inset-0 bg-linear-to-t from-dark via-dark/50 to-transparent" />
       <div className="absolute inset-0 bg-linear-to-r from-primary/20 to-secondary/20" />
+      
+      {children && (
+        <div className="absolute inset-0 flex items-center justify-center z-10">
+          <div className="text-center animate-fade-in">
+            {children}
+          </div>
+        </div>
+      )}
     </div>
   )
 }
