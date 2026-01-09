@@ -1,17 +1,26 @@
-import express from 'express';
-import cors from 'cors';
-import dotenv from 'dotenv';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
-dotenv.config();
+export default async function handler(req, res) {
+  // Configurar CORS
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
+  );
 
-const app = express();
-const PORT = 3001;
+  // Handle preflight
+  if (req.method === 'OPTIONS') {
+    res.status(200).end();
+    return;
+  }
 
-app.use(cors());
-app.use(express.json());
+  // Apenas POST
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Método não permitido' });
+  }
 
-app.post('/api/comentario', async (req, res) => {
   try {
     const { titulo } = req.body;
 
@@ -40,14 +49,10 @@ Use emojis.`;
     const response = await result.response;
     const text = response.text();
 
-    res.json({ comentario: text });
+    res.status(200).json({ comentario: text });
 
   } catch (error) {
     console.error('Erro no servidor Gemini:', error);
     res.status(500).json({ error: 'A IA não conseguiu processar o pedido.' });
   }
-});
-
-app.listen(PORT, () => {
-  console.log(`✅ Servidor API rodando em http://localhost:${PORT}`);
-});
+}

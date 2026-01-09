@@ -36,7 +36,12 @@ export const useGeminiReview = (titulo: string | undefined) => {
     await new Promise(resolve => setTimeout(resolve, 1000));
 
     try {
-      const response = await fetch('http://localhost:3001/api/comentario', {
+      // Detecta automaticamente a URL correta
+      const apiUrl = import.meta.env.DEV 
+        ? 'http://localhost:3001/api/comentario'  // Desenvolvimento local
+        : '/api/comentario';  // Produção (Vercel)
+
+      const response = await fetch(apiUrl, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ titulo })
