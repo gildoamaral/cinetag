@@ -23,7 +23,6 @@ export async function fetchVideos(): Promise<Video[]> {
     throw new Error('Erro ao carregar vídeos')
   }
   const data = await response.json()
-  console.log(data.results.map(mapToVideo));
   return data.results.map(mapToVideo)
 }
 

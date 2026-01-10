@@ -11,7 +11,7 @@ function CabecalhoLink({ url, children }: CabecalhoLinkProps) {
     <NavLink 
       to={url} 
       className={({ isActive }) => `
-        relative px-4 py-2 rounded-full font-medium text-sm md:text-base
+        relative px-2 sm:px-4 py-2 rounded-full font-medium text-sm md:text-base
         transition-all duration-300 ease-out
         ${isActive 
           ? 'bg-linear-to-r from-primary to-secondary text-white shadow-lg shadow-primary/30' 

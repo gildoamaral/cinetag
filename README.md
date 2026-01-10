@@ -2,16 +2,18 @@
 
 Uma aplicação web moderna para descobrir, explorar e favoritizar filmes populares com integração de inteligência artificial para críticas personalizadas.
 
+[acesse o site](https://cinetag-teal.vercel.app/) 
+
 ## 📋 Sobre o Projeto
 
 **Cinetag** é uma plataforma que ajuda você a decidir qual filme assistir consultando os filmes mais populares do momento. O app exibe:
 
+- 🤖 Críticas geradas por IA (Google Gemini) para cada filme
 - 📺 Catálogo dos filmes mais populares em tempo real
-- ⭐ Avaliações coloridas (vermelho < 5, amarelo 5-7, verde 7-9, azul ≥ 9)
-- 📅 Data de lançamento e sinopse completa
+- ⭐ Avaliações coloridas 
+- 📅 Informações sobre os filmes
 - 🎬 Trailers integrados do YouTube
 - ❤️ Sistema de favoritos persistido localmente
-- 🤖 Críticas geradas por IA (Google Gemini) para cada filme
 
 ## 🔄 Reformulação do Projeto
 

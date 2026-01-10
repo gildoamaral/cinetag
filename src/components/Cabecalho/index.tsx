@@ -11,7 +11,7 @@ function Cabecalho() {
             <img 
               src={logo} 
               alt="logo do cinetag" 
-              className="h-10 md:h-12 transition-transform duration-300 group-hover:scale-110"
+              className="h-8 sm:h-12 transition-transform duration-300 group-hover:scale-110"
             />
           </Link>
 
