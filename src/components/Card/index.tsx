@@ -21,7 +21,7 @@ function Card({ id, titulo, capa, vote_average }: CardProps) {
   }
 
   return (
-    <div className="group relative bg-linear-to-br from-dark-lighter to-dark rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 animate-fade-in">
+    <div className="group relative bg-linear-to-br from-dark-lighter to-dark rounded-sm overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 animate-fade-in">
       {/* Card Image */}
       <Link to={`/videos/${id}`} className="block relative overflow-hidden">
         <div className="aspect-video overflow-hidden">
@@ -88,7 +88,7 @@ function Card({ id, titulo, capa, vote_average }: CardProps) {
       </button>
 
       {/* Glow Effect */}
-      <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/10 pointer-events-none" />
+      <div className="absolute inset-0 ring-1 ring-inset ring-white/10 pointer-events-none" />
     </div>
   )
 }
