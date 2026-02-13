@@ -46,9 +46,6 @@ A versão original foi desenvolvida como um projeto de aprendizado durante os pr
 - **Backend:** Express.js (API serverless)
 - **Deployment:** Vercel
 
-## 🚀 Como Executar
-
-
 
 ## 📁 Estrutura do Projeto
 
@@ -106,3 +103,4 @@ Este projeto é de código aberto e pode ser usado livremente.
 ---
 
 **Aproveite a exploração dos filmes! 🍿✨**
+
